@@ -1,0 +1,13 @@
+package com.pradeep.hotel.booking.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.pradeep.hotel.booking.model.User;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+	boolean existByEmail(String email);
+
+	void deleteByEmail(String email);
+
+}

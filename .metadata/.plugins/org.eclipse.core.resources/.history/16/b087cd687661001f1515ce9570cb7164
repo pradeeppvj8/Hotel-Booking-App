@@ -1,0 +1,5 @@
+package com.pradeep.hotel.booking.exception;
+
+public class UserAlreadyExistsException extends Exception {
+
+}

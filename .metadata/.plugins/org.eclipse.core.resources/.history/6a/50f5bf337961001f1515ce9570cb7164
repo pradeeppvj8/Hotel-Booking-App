@@ -1,0 +1,5 @@
+package com.pradeep.hotel.booking.controller;
+
+public class UserController {
+
+}
