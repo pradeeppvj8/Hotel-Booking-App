@@ -1,0 +1,5 @@
+package com.pradeep.hotel.booking.service;
+
+public class UserServiceImple {
+
+}

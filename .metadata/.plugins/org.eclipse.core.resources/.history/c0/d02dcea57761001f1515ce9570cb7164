@@ -1,0 +1,51 @@
+package com.pradeep.hotel.booking.service;
+
+import java.util.List;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.pradeep.hotel.booking.exception.UserAlreadyExistsException;
+import com.pradeep.hotel.booking.model.Role;
+import com.pradeep.hotel.booking.model.User;
+import com.pradeep.hotel.booking.repository.RoleRepository;
+import com.pradeep.hotel.booking.repository.UserRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class UserServiceImpl implements UserService {
+	private final UserRepository userRepository;
+	private final PasswordEncoder passwordEncoder;
+	private final RoleRepository roleRepository;
+
+	@Override
+	public User registerUser(User user) {
+		if (userRepository.existByEmail(user.getEmail())) {
+			throw new UserAlreadyExistsException(user.getEmail() + " already exists");
+		}
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		Role userRole = roleRepository.findByName("ROLE_USER").get();
+		return null;
+	}
+
+	@Override
+	public List<User> getUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteUser(String email) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public User getUser(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
